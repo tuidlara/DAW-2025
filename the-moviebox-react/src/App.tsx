@@ -1,20 +1,24 @@
 import { MovieContent } from "./cases/movies/components/movie-content"
+import { MovieContextProvider } from "./cases/movies/context/movie-context"
 import { Footer } from "./components/layout/footer"
 import { Header } from "./components/layout/header"
+import Highlight from "./components/layout/highlight"
 import { Navbar } from "./components/layout/navbar"
-import { Highlight } from "./components/layout/highlight"
+
 
 function App() {
 
   return (
     <>
-      <Header/>
-      <main>
-        <Highlight />
-        <Navbar />
-        <MovieContent />
-      </main>
-      <Footer/>
+    <Header></Header>
+    <main>
+      <MovieContextProvider>
+        <Highlight/>
+        <Navbar/>
+        <MovieContent/>
+      </MovieContextProvider>
+    </main>
+    <Footer></Footer>
     </>
   )
 }
